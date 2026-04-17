@@ -1,0 +1,153 @@
+/**
+ * Masterway Energia Solar Digital - Interações GD
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Animação de Scroll (Header)
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // 3. Intersection Observer para Animações (data-aos) e Barras de Progresso
+    const observerOptions = {
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Ativar animação geral (fade-up, etc)
+                if (entry.target.hasAttribute('data-aos')) {
+                    entry.target.classList.add('aos-animate');
+                }
+                
+                // Ativar barras de progresso especificamente
+                if (entry.target.classList.contains('vantagem-item')) {
+                    const bar = entry.target.querySelector('.progress-bar');
+                    const percent = entry.target.getAttribute('data-percent');
+                    bar.style.setProperty('--final-width', percent + '%');
+                    entry.target.classList.add('visible');
+                }
+            } else {
+                // Resetar estado ao sair da tela para animação recorrente
+                if (entry.target.classList.contains('vantagem-item')) {
+                    entry.target.classList.remove('visible');
+                }
+                
+                // Opcional: resetar AOS também se desejar animação completa repetida
+                if (entry.target.hasAttribute('data-aos')) {
+                    entry.target.classList.remove('aos-animate');
+                }
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+    document.querySelectorAll('.vantagem-item').forEach(el => observer.observe(el));
+
+    // 3. Lógica do Formulário de Lead e Simulação
+    const leadForm = document.getElementById('lead-form');
+    
+    if (leadForm) {
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const btn = leadForm.querySelector('button');
+            // Coletar dados
+            const formData = {
+                tipoPessoa: leadForm.querySelector('input[name="tipo-pessoa"]:checked')?.value || 'pf',
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email')?.value || '',
+                whatsapp: document.getElementById('whatsapp').value,
+                cep: document.getElementById('cep')?.value || '',
+                valorConta: parseFloat(document.getElementById('valor-conta').value) || 0
+            };
+
+            // Simular envio
+            btn.innerHTML = `<span>Processando...</span>`;
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                // Cálculo de economia (15% garantido no modelo GD)
+                const economiaMensal = formData.valorConta * 0.15;
+                const economiaAnual = economiaMensal * 12;
+
+                // Feedback visual de sucesso
+                leadForm.innerHTML = `
+                    <div class="text-center space-y-8 animate-[fade-in_0.5s_ease-out]">
+                        <div class="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-emerald-500/30">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" class="w-10 h-10">
+                                <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-3xl font-['Outfit'] font-black uppercase tracking-tighter">Parabéns, ${formData.nome}!</h3>
+                            <p class="text-slate-400">Sua economia potencial é de <span class="text-emerald-500 font-bold">${economiaMensal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span> por mês!</p>
+                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-1">Economia em 1 ano</p>
+                                <p class="text-4xl font-black text-white">${economiaAnual.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-500">Um consultor entrará em contato em breve via WhatsApp para finalizar sua adesão digital.</p>
+                        <button onclick="location.reload()" class="text-amber-500 hover:text-white font-bold uppercase tracking-widest text-xs transition-colors">Fazer nova simulação</button>
+                    </div>
+                `;
+                
+                console.log("LEAD CAPTURADO:", formData);
+            }, 1500);
+        });
+    }
+
+    // 4. Lógica do Simulador Flutuante (HERO)
+    const heroSlider = document.getElementById('hero-slider');
+    const sliderValueDisplay = document.getElementById('slider-value-display');
+    const annualDiscountDisplay = document.getElementById('annual-discount-display');
+    const heroFom = document.getElementById('hero-calculator');
+
+    if (heroSlider && sliderValueDisplay && annualDiscountDisplay) {
+        const updateHeroSimulator = () => {
+            const billValue = parseFloat(heroSlider.value);
+            const isEmpresa = heroFom.querySelector('input[name="perfil"]:checked').value === 'empresa';
+            
+            // Lógica: 15% para casa, 20% para empresa (ajustável)
+            const discountRate = isEmpresa ? 0.20 : 0.15; 
+            const annualDiscount = billValue * 12 * discountRate;
+
+            sliderValueDisplay.innerText = `R$ ${billValue.toLocaleString('pt-BR')}`;
+            annualDiscountDisplay.innerText = annualDiscount.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+        };
+
+        heroSlider.addEventListener('input', updateHeroSimulator);
+        heroFom.querySelectorAll('input[name="perfil"]').forEach(radio => {
+            radio.addEventListener('change', updateHeroSimulator);
+        });
+
+        // Initialize
+        updateHeroSimulator();
+    }
+
+    // 5. Smooth Anchor Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+});

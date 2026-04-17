@@ -1,0 +1,204 @@
+/* Design System Masterway - Modelo GD */
+
+:root {
+    --gold: #F59E0B;
+    --emerald: #10B981;
+    --midnight: #0F172A;
+    --deep-slate: #020617;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism 2.0 */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Header state */
+#main-header.scrolled {
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Progress Bars (Screenshot Style) */
+.progress-bar {
+    width: 0;
+    transition: width 2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.visible .progress-bar {
+    width: var(--final-width);
+}
+
+.progress-container {
+    background: #FFFFFF !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Hero Simulator Card */
+.hero-glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3rem 0 3rem 3rem; /* Unique corner style from prompt image */
+}
+
+/* Custom Range Slider */
+input[type="range"].custom-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+input[type="range"].custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #f59e0b; /* Amber 500 */
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+    transition: transform 0.2s;
+}
+
+input[type="range"].custom-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Radio button styles */
+.radio-chip input:checked + .radio-label {
+    background: #f59e0b;
+    color: #020617;
+}
+
+/* Leads / Dúvidas Section with Photo BG */
+#leads {
+    background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.7)), url('assets/duvidas-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.leads-glass-card {
+    background: rgba(2, 6, 23, 0.3);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Radio chips logic shared with hero simulator */
+.custom-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.custom-checkbox:checked {
+    background: #f59e0b;
+    border-color: #f59e0b;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--deep-slate);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* Inputs Premium */
+input {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.3);
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4 {
+    letter-spacing: -0.04em;
+    font-family: 'Outfit', sans-serif;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #FFF 0%, #F59E0B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Table Styling */
+table tr {
+    transition: background 0.3s ease;
+}
+
+table tr:hover:not(thead tr) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Smooth Entrance (AOS fallback/custom) */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Final CTA Glow */
+#hero a, #leads button, section:last-of-type a {
+    position: relative;
+    overflow: hidden;
+}
+
+#hero a::after, #leads button::after, section:last-of-type a::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+#hero a:hover::after, #leads button:hover::after, section:last-of-type a:hover::after {
+    opacity: 1;
+}
