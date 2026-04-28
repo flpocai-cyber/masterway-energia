@@ -105,35 +105,101 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Lógica do Simulador Flutuante (HERO)
-    const heroSlider = document.getElementById('hero-slider');
-    const sliderValueDisplay = document.getElementById('slider-value-display');
-    const annualDiscountDisplay = document.getElementById('annual-discount-display');
-    const heroFom = document.getElementById('hero-calculator');
+    // 4. Lógica do Formulário Flutuante (HERO) com IBGE API
+    const heroEstado = document.getElementById('hero-estado');
+    const heroCidade = document.getElementById('hero-cidade');
+    const heroLeadForm = document.getElementById('hero-lead-form');
 
-    if (heroSlider && sliderValueDisplay && annualDiscountDisplay) {
-        const updateHeroSimulator = () => {
-            const billValue = parseFloat(heroSlider.value);
-            const isEmpresa = heroFom.querySelector('input[name="perfil"]:checked').value === 'empresa';
+    if (heroEstado && heroCidade) {
+        // Buscar estados
+        fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+            .then(response => response.json())
+            .then(estados => {
+                estados.forEach(estado => {
+                    const option = document.createElement('option');
+                    option.value = estado.sigla;
+                    option.dataset.id = estado.id;
+                    option.textContent = estado.nome;
+                    option.className = 'bg-slate-900 text-white';
+                    heroEstado.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Erro ao buscar estados:', error));
+
+        // Atualizar cidades quando estado mudar
+        heroEstado.addEventListener('change', (e) => {
+            const estadoId = e.target.options[e.target.selectedIndex].dataset.id;
             
-            // Lógica: 15% para casa, 20% para empresa (ajustável)
-            const discountRate = isEmpresa ? 0.20 : 0.15; 
-            const annualDiscount = billValue * 12 * discountRate;
+            heroCidade.innerHTML = '<option value="" disabled selected>Carregando...</option>';
+            heroCidade.disabled = true;
 
-            sliderValueDisplay.innerText = `R$ ${billValue.toLocaleString('pt-BR')}`;
-            annualDiscountDisplay.innerText = annualDiscount.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            });
-        };
-
-        heroSlider.addEventListener('input', updateHeroSimulator);
-        heroFom.querySelectorAll('input[name="perfil"]').forEach(radio => {
-            radio.addEventListener('change', updateHeroSimulator);
+            fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoId}/municipios?orderBy=nome`)
+                .then(response => response.json())
+                .then(cidades => {
+                    heroCidade.innerHTML = '<option value="" disabled selected>Selecione a cidade</option>';
+                    cidades.forEach(cidade => {
+                        const option = document.createElement('option');
+                        option.value = cidade.nome;
+                        option.textContent = cidade.nome;
+                        option.className = 'bg-slate-900 text-white';
+                        heroCidade.appendChild(option);
+                    });
+                    heroCidade.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar cidades:', error);
+                    heroCidade.innerHTML = '<option value="" disabled selected>Erro ao carregar</option>';
+                });
         });
+    }
 
-        // Initialize
-        updateHeroSimulator();
+    if (heroLeadForm) {
+        heroLeadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const btn = heroLeadForm.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            const dados = {
+                nome: document.getElementById('hero-nome').value,
+                empresa: document.getElementById('hero-empresa').value,
+                whatsapp: document.getElementById('hero-whatsapp').value,
+                email: document.getElementById('hero-email').value,
+                estado: document.getElementById('hero-estado').value,
+                cidade: document.getElementById('hero-cidade').value,
+                valorConta: document.getElementById('hero-valor-conta').value
+            };
+
+            btn.innerHTML = `Processando...`;
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                const subject = encodeURIComponent(`Nova Análise de Energia - ${dados.nome}`);
+                let body = `Nome: ${dados.nome}\n`;
+                if(dados.empresa) body += `Empresa: ${dados.empresa}\n`;
+                body += `WhatsApp: ${dados.whatsapp}\n`;
+                body += `E-mail: ${dados.email}\n`;
+                body += `Estado: ${dados.estado}\n`;
+                body += `Cidade: ${dados.cidade}\n`;
+                body += `Valor médio da conta: ${dados.valorConta}\n`;
+                
+                const mailtoLink = `mailto:contato@masterway.com.br?subject=${subject}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoLink;
+                
+                btn.innerHTML = `Pronto!`;
+                setTimeout(() => {
+                    heroLeadForm.reset();
+                    if (heroCidade) {
+                        heroCidade.innerHTML = '<option value="" disabled selected>Aguardando...</option>';
+                        heroCidade.disabled = true;
+                    }
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                }, 3000);
+            }, 800);
+        });
     }
 
     // 5. Smooth Anchor Scroll

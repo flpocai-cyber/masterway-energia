@@ -46,10 +46,11 @@
                     Sem Investimento Inicial
                 </span>
                 <h1 class="text-6xl lg:text-8xl font-['Outfit'] font-black leading-[0.85] tracking-tight">
-                    Economize até <span class="text-amber-500 italic">15%</span> <br>na conta de luz <br><span class="text-slate-400">sem instalar nada.</span>
+                    Energia inteligente <br>para <span class="text-amber-500 italic">reduzir custos</span> <br>e <span class="text-slate-400">otimizar resultados.</span>
                 </h1>
                 <p class="text-xl text-slate-400 max-w-xl leading-relaxed font-medium">
-                    Energia solar por assinatura, 100% digital, sem obras e sem qualquer investimento inicial para residências ou empresas.
+                    Você pode estar pagando energia mais cara do que o necessário todos os meses — e nem sabe disso.<br><br>
+                    A Masterway Energia analisa a sua conta de energia e mostra, com clareza, quanto você pode economizar todos os meses. Economia real de forma simples.
                 </p>
                 <div class="flex flex-wrap gap-6 items-center pt-4">
                     <a href="https://wa.me/5500000000000" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-12 py-6 rounded-3xl font-black text-xl shadow-2xl shadow-amber-500/30 transition-all hover:-translate-y-1 active:scale-95 uppercase tracking-tighter flex items-center gap-4">
@@ -63,54 +64,64 @@
 
             <!-- Floating Glass Simulator - Coluna 2 -->
             <div class="relative" data-aos="fade-left">
-                <div class="hero-glass-card p-12 relative overflow-hidden group shadow-2xl shadow-black/40 border border-white/5">
-                    <h3 class="text-3xl font-['Outfit'] font-black leading-tight mb-8">Descubra o quanto você pode economizar.</h3>
+                <div class="hero-glass-card p-10 relative overflow-hidden group shadow-2xl shadow-black/40 border border-white/5">
+                    <h3 class="text-2xl font-['Outfit'] font-black leading-tight mb-6">Receba uma análise gratuita</h3>
                     
-                    <form id="hero-calculator" class="space-y-8">
-                        <!-- Perfil Selector -->
-                        <div class="flex gap-4">
-                            <label class="radio-chip cursor-pointer">
-                                <input type="radio" name="perfil" value="empresa" class="hidden">
-                                <span class="radio-label px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase transition-all">Empresa</span>
-                            </label>
-                            <label class="radio-chip cursor-pointer">
-                                <input type="radio" name="perfil" value="casa" checked class="hidden">
-                                <span class="radio-label px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase transition-all">Casa</span>
-                            </label>
+                    <form id="hero-lead-form" class="space-y-4">
+                        <!-- Nome -->
+                        <div class="space-y-1">
+                            <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-2">Nome Completo *</label>
+                            <input type="text" id="hero-nome" required placeholder="Seu nome" class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-500 text-sm">
+                        </div>
+                        
+                        <!-- Empresa -->
+                        <div class="space-y-1">
+                            <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-2">Empresa</label>
+                            <input type="text" id="hero-empresa" placeholder="Sua empresa" class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-500 text-sm">
                         </div>
 
-                        <!-- Distribuidora -->
-                        <div class="space-y-3">
-                            <label class="text-[10px] uppercase font-bold text-slate-500 tracking-widest pl-2">Distribuidora:</label>
-                            <select id="distribuidora" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl outline-none focus:ring-1 focus:ring-amber-500 appearance-none font-bold text-sm">
-                                <option value="energisa" class="bg-slate-900">ENERGISA SP</option>
-                                <option value="cpfl" class="bg-slate-900">CPFL PAULISTA</option>
-                                <option value="enel" class="bg-slate-900">ENEL SP</option>
-                            </select>
-                        </div>
-
-                        <!-- Slider -->
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center px-2">
-                                <label class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Valor da sua conta de luz?</label>
-                                <span class="text-xl font-black text-white" id="slider-value-display">R$ 750</span>
+                        <!-- WhatsApp & E-mail -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-2">WhatsApp *</label>
+                                <input type="tel" id="hero-whatsapp" required placeholder="(00) 00000-0000" class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-500 text-sm">
                             </div>
-                            <input type="range" id="hero-slider" min="150" max="5000" step="50" value="750" class="custom-range">
+                            <div class="space-y-1">
+                                <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-2">E-mail *</label>
+                                <input type="email" id="hero-email" required placeholder="Seu e-mail" class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-500 text-sm">
+                            </div>
                         </div>
 
-                        <!-- Result -->
-                        <div class="bg-white/5 p-6 rounded-3xl border border-white/5 space-y-2">
-                            <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Seu desconto anual será de:</p>
-                            <p class="text-4xl font-black text-amber-500 font-['Outfit']" id="annual-discount-display">R$ 1.350,00</p>
+                        <!-- Estado & Cidade -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-2">Estado *</label>
+                                <select id="hero-estado" required class="w-full bg-white/5 border border-white/10 p-3 rounded-xl outline-none focus:ring-1 focus:ring-amber-500 font-bold text-sm text-slate-300">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <!-- Options populated by JS -->
+                                </select>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-2">Cidade *</label>
+                                <select id="hero-cidade" required disabled class="w-full bg-white/5 border border-white/10 p-3 rounded-xl outline-none focus:ring-1 focus:ring-amber-500 font-bold text-sm text-slate-300 disabled:opacity-50">
+                                    <option value="" disabled selected>Aguardando...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Valor da conta -->
+                        <div class="space-y-1">
+                            <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-2">Valor médio da conta *</label>
+                            <input type="text" id="hero-valor-conta" required placeholder="Ex: R$ 1500,00" class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:ring-1 focus:ring-amber-500 outline-none transition-all font-bold placeholder:text-slate-500 text-sm">
                         </div>
 
                         <!-- Button -->
-                        <a href="https://wa.me/5500000000000" target="_blank" class="block w-full bg-amber-500 hover:bg-amber-600 text-slate-900 text-center font-black py-5 rounded-2xl transition-all uppercase tracking-widest text-xs active:scale-95 shadow-lg shadow-amber-500/20 flex items-center justify-center gap-3">
-                            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.411 0 .01 5.403.007 12.04c0 2.12.552 4.189 1.598 6.048L0 24l6.103-1.6c1.802.983 3.834 1.504 5.91 1.505h.005c6.637 0 12.038-5.403 12.041-12.04a11.82 11.82 0 00-3.517-8.414z"/>
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 text-center font-black py-4 mt-2 rounded-xl transition-all uppercase tracking-widest text-xs active:scale-95 shadow-lg shadow-amber-500/20 flex items-center justify-center gap-3">
+                            Enviar para análise
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-4 h-4">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            Fale com um consultor agora
-                        </a>
+                        </button>
                     </form>
                 </div>
             </div>
