@@ -238,147 +238,75 @@
         </div>
     </section>
 
-    <!-- 5. DÚVIDAS / CAPTURA DE LEADS -->
-    <section id="leads" class="py-32 relative overflow-hidden flex items-center min-h-[90vh]">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-3xl mx-auto leads-glass-card p-10 lg:p-16 rounded-[4rem] text-center" data-aos="zoom-in">
-                <p class="text-[10px] uppercase font-bold text-amber-500 tracking-[0.4em] mb-4">#EquipeMasterway</p>
-                <h2 class="text-4xl lg:text-5xl font-['Outfit'] font-black uppercase leading-[1.1] mb-8">
-                    Ainda tem dúvidas?<br>
-                    <span class="text-amber-500 italic">Faça seu cadastro</span> e <br>
-                    entraremos em contato.
-                </h2>
-                
-                <form id="lead-form" class="space-y-8 text-left max-w-2xl mx-auto">
-                    <!-- Pessoa Física / Jurídica -->
-                    <div class="flex justify-center gap-8 mb-4">
-                        <label class="radio-chip cursor-pointer">
-                            <input type="radio" name="tipo-pessoa" value="pf" checked class="hidden">
-                            <span class="radio-label px-8 py-3 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest transition-all">Pessoa Física</span>
-                        </label>
-                        <label class="radio-chip cursor-pointer">
-                            <input type="radio" name="tipo-pessoa" value="pj" class="hidden">
-                            <span class="radio-label px-8 py-3 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest transition-all">Pessoa Jurídica</span>
-                        </label>
-                    </div>
-
-                    <!-- Nome Completo -->
-                    <div class="space-y-2">
-                        <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-4">Nome Completo *</label>
-                        <input type="text" id="nome" required placeholder="Digite seu nome completo" class="w-full bg-slate-900/50 border border-white/10 p-5 rounded-3xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600">
-                    </div>
-
-                    <!-- E-mail -->
-                    <div class="space-y-2">
-                        <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-4">E-mail *</label>
-                        <input type="email" id="email" required placeholder="Digite seu e-mail" class="w-full bg-slate-900/50 border border-white/10 p-5 rounded-3xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600">
-                    </div>
-
-                    <!-- Celular e CEP -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-4">Celular</label>
-                            <input type="tel" id="whatsapp" required placeholder="(00) 00000-0000" class="w-full bg-slate-900/50 border border-white/10 p-5 rounded-3xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-4">CEP</label>
-                            <input type="text" id="cep" placeholder="00000-000" class="w-full bg-slate-900/50 border border-white/10 p-5 rounded-3xl focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600">
-                        </div>
-                    </div>
-
-                    <!-- Consumo Mensal -->
-                    <div class="space-y-2">
-                        <label class="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-4">Valor médio mensal de consumo de energia</label>
-                        <input type="number" id="valor-conta" required placeholder="Ex: 500,00" class="w-full bg-slate-900/50 border border-white/10 p-5 rounded-3xl focus:ring-1 focus:ring-amber-500 outline-none transition-all font-bold placeholder:text-slate-600">
-                    </div>
-
-                    <!-- LGPD Checkbox -->
-                    <div class="flex items-start gap-4 px-4 py-2">
-                        <input type="checkbox" id="lgpd" required class="custom-checkbox mt-1">
-                        <label for="lgpd" class="text-[10px] text-slate-400 leading-relaxed font-medium uppercase tracking-tighter">Concordo com nossos termos e condições para usar seus dados enviados para contato.</label>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-black py-7 rounded-3xl transition-all shadow-2xl shadow-amber-500/40 uppercase tracking-[0.2em] text-sm active:scale-95 group flex items-center justify-center gap-4">
-                        ENVIAR
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-5 h-5 group-hover:translate-x-2 transition-transform">
-                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. DIFERENCIAIS -->
-    <section id="diferenciais" class="py-32 bg-slate-950 relative overflow-hidden">
+    <!-- 5. DIFERENCIAIS -->
+    <section id="diferenciais" class="py-24 relative overflow-hidden flex items-center min-h-[90vh]">
         <div class="absolute inset-0 z-0">
             <img src="assets/hero-solar.jpg" alt="Diferenciais Masterway" class="w-full h-full object-cover opacity-20 mix-blend-overlay">
             <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/90 to-slate-950"></div>
         </div>
         
-        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
-            <div class="glass-card p-8 md:p-16 rounded-[3rem] border border-white/5 shadow-2xl shadow-black/50">
-                <div class="text-center mb-12" data-aos="fade-up">
-                    <p class="text-amber-500 text-[10px] font-black tracking-[0.3em] uppercase mb-4">#EquipeMasterway</p>
-                    <h2 class="text-4xl lg:text-6xl font-['Outfit'] font-black uppercase tracking-tighter text-amber-500">Diferenciais</h2>
-                    <div class="w-20 h-1.5 bg-amber-500 mx-auto rounded-full mt-6"></div>
+        <div class="container mx-auto px-6 relative z-10 max-w-3xl">
+            <div class="glass-card p-8 lg:p-12 rounded-[3rem] border border-white/5 shadow-2xl shadow-black/50">
+                <div class="text-center mb-8" data-aos="fade-up">
+                    <p class="text-amber-500 text-[10px] font-black tracking-[0.3em] uppercase mb-2">#EquipeMasterway</p>
+                    <h2 class="text-4xl lg:text-5xl font-['Outfit'] font-black uppercase tracking-tighter text-amber-500">Diferenciais</h2>
+                    <div class="w-16 h-1.5 bg-amber-500 mx-auto rounded-full mt-4"></div>
                 </div>
                 
-                <div class="space-y-4">
+                <div class="space-y-3">
                     <!-- Item 1 -->
-                    <div class="flex items-center gap-6 p-6 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-105 cursor-default group" data-aos="fade-up" data-aos-delay="0">
-                        <div class="w-16 h-16 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
-                            <svg class="w-8 h-8 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="flex items-center gap-4 p-4 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-[1.03] cursor-default group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
+                            <svg class="w-6 h-6 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <p class="text-xl md:text-2xl font-bold text-white font-['Outfit'] leading-snug">Consultoria especializada<br class="hidden md:block"> no mercado de energia</p>
+                        <p class="text-lg md:text-xl font-bold text-white font-['Outfit'] leading-snug">Consultoria especializada no mercado de energia</p>
                     </div>
 
                     <!-- Item 2 -->
-                    <div class="flex items-center gap-6 p-6 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-105 cursor-default group" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-16 h-16 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
-                            <svg class="w-8 h-8 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="flex items-center gap-4 p-4 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-[1.03] cursor-default group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
+                            <svg class="w-6 h-6 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <p class="text-xl md:text-2xl font-bold text-white font-['Outfit'] leading-snug">Atendimento<br class="hidden md:block"> personalizado</p>
+                        <p class="text-lg md:text-xl font-bold text-white font-['Outfit'] leading-snug">Atendimento personalizado</p>
                     </div>
 
                     <!-- Item 3 -->
-                    <div class="flex items-center gap-6 p-6 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-105 cursor-default group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-16 h-16 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
-                            <svg class="w-8 h-8 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="flex items-center gap-4 p-4 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-[1.03] cursor-default group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
+                            <svg class="w-6 h-6 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <p class="text-xl md:text-2xl font-bold text-white font-['Outfit'] leading-snug">Processo rápido<br class="hidden md:block"> e descomplicado</p>
+                        <p class="text-lg md:text-xl font-bold text-white font-['Outfit'] leading-snug">Processo rápido e descomplicado</p>
                     </div>
 
                     <!-- Item 4 -->
-                    <div class="flex items-center gap-6 p-6 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-105 cursor-default group" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-16 h-16 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
-                            <svg class="w-8 h-8 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="flex items-center gap-4 p-4 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-[1.03] cursor-default group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
+                            <svg class="w-6 h-6 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <p class="text-xl md:text-2xl font-bold text-white font-['Outfit'] leading-snug">Sem necessidade de obras<br class="hidden md:block"> e investimentos</p>
+                        <p class="text-lg md:text-xl font-bold text-white font-['Outfit'] leading-snug">Sem necessidade de obras e investimentos</p>
                     </div>
 
                     <!-- Item 5 -->
-                    <div class="flex items-center gap-6 p-6 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-105 cursor-default group" data-aos="fade-up" data-aos-delay="400">
-                        <div class="w-16 h-16 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
-                            <svg class="w-8 h-8 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="flex items-center gap-4 p-4 rounded-3xl border border-white/5 bg-slate-900/40 hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300 hover:scale-[1.03] cursor-default group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl border-2 border-amber-500 flex items-center justify-center fill-circle-anim bg-transparent group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-shadow">
+                            <svg class="w-6 h-6 text-slate-900 opacity-0 check-icon-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <p class="text-xl md:text-2xl font-bold text-white font-['Outfit'] leading-snug">Solução adaptada ao seu<br class="hidden md:block"> perfil de consumo</p>
+                        <p class="text-lg md:text-xl font-bold text-white font-['Outfit'] leading-snug">Solução adaptada ao seu perfil de consumo</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. CTA FINAL -->
+    <!-- 6. CTA FINAL -->
     <section class="py-40 bg-slate-950 relative overflow-hidden text-center">
         <div class="absolute inset-0 z-0">
              <img src="assets/feature-solar.jpg" alt="Final CTA" class="w-full h-full object-cover opacity-10">
         </div>
         <div class="container mx-auto px-6 relative z-10">
             <h2 class="text-5xl lg:text-8xl font-['Outfit'] font-black mb-12 tracking-tighter leading-none italic uppercase">Pare de pagar caro na energia.<br><span class="text-amber-500">Comece a economizar hoje.</span></h2>
-            <a href="#leads" class="inline-block bg-white text-slate-950 px-16 py-8 rounded-[2.5rem] font-black text-3xl transition-all hover:-translate-y-2 hover:bg-amber-500 hover:shadow-2xl hover:shadow-amber-500/30 active:scale-95 uppercase tracking-tighter">
-                Faça seu cadastro
+            <a href="https://wa.me/5519998338269" target="_blank" class="inline-block bg-white text-slate-950 px-12 md:px-16 py-6 md:py-8 rounded-[2.5rem] font-black text-2xl md:text-3xl transition-all hover:-translate-y-2 hover:bg-amber-500 hover:shadow-2xl hover:shadow-amber-500/30 active:scale-95 uppercase tracking-tighter">
+                Fale com um consultor
             </a>
         </div>
     </section>
