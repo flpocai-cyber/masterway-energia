@@ -202,3 +202,21 @@ table tr:hover:not(thead tr) {
 #hero a:hover::after, #leads button:hover::after, section:last-of-type a:hover::after {
     opacity: 1;
 }
+
+/* Animação das bolinhas da tabela */
+.fill-circle-anim {
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.check-icon-anim {
+    transition: opacity 0.4s ease-out 0.3s, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+    transform: scale(0.5);
+}
+
+.aos-animate .fill-circle-anim {
+    background-color: #f59e0b; /* bg-amber-500 */
+    box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.4);
+}
+.aos-animate .check-icon-anim {
+    opacity: 1;
+    transform: scale(1);
+}
