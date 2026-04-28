@@ -216,4 +216,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 6. Accordion FAQ
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const button = item.querySelector('.faq-button');
+        const content = item.querySelector('.faq-content');
+        const icon = item.querySelector('svg');
+
+        button.addEventListener('click', () => {
+            const isOpen = content.style.maxHeight;
+
+            // Fechar todos
+            document.querySelectorAll('.faq-content').forEach(c => {
+                c.style.maxHeight = null;
+            });
+            document.querySelectorAll('.faq-item svg').forEach(i => {
+                i.style.transform = 'rotate(0deg)';
+            });
+
+            // Abrir o atual se não estava aberto
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
 });
