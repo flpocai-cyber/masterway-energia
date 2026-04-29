@@ -4,7 +4,7 @@
     --gold: #F59E0B;
     --emerald: #10B981;
     --midnight: #0F172A;
-    --deep-slate: #020617;
+    --deep-slate: #0D1B2A;
 }
 
 html {
@@ -28,7 +28,7 @@ body {
 
 /* Header state */
 #main-header.scrolled {
-    background: rgba(2, 6, 23, 0.85);
+    background: rgba(13, 27, 42, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 1rem;
@@ -85,19 +85,19 @@ input[type="range"].custom-range::-webkit-slider-thumb:hover {
 /* Radio button styles */
 .radio-chip input:checked + .radio-label {
     background: #f59e0b;
-    color: #020617;
+    color: #0D1B2A;
 }
 
 /* Leads / Dúvidas Section with Photo BG */
 #leads {
-    background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.7)), url('assets/duvidas-bg.jpg');
+    background: linear-gradient(rgba(13, 27, 42, 0.7), rgba(13, 27, 42, 0.7)), url('assets/duvidas-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
 .leads-glass-card {
-    background: rgba(2, 6, 23, 0.3);
+    background: rgba(13, 27, 42, 0.3);
     backdrop-filter: blur(40px);
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
