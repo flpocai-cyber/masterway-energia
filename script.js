@@ -112,17 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroEstado && heroCidade) {
         // Buscar estados
+        // Estados disponíveis para atendimento
+        const estadosPermitidos = ['BA', 'GO', 'PI', 'SP', 'MG', 'PR', 'MT', 'MS'];
+
         fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
             .then(response => response.json())
             .then(estados => {
-                estados.forEach(estado => {
-                    const option = document.createElement('option');
-                    option.value = estado.sigla;
-                    option.dataset.id = estado.id;
-                    option.textContent = estado.nome;
-                    option.className = 'bg-slate-900 text-white';
-                    heroEstado.appendChild(option);
-                });
+                estados
+                    .filter(estado => estadosPermitidos.includes(estado.sigla))
+                    .forEach(estado => {
+                        const option = document.createElement('option');
+                        option.value = estado.sigla;
+                        option.dataset.id = estado.id;
+                        option.textContent = estado.nome;
+                        option.className = 'bg-slate-900 text-white';
+                        heroEstado.appendChild(option);
+                    });
             })
             .catch(error => console.error('Erro ao buscar estados:', error));
 
