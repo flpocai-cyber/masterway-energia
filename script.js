@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body += `Cidade: ${dados.cidade}\n`;
                 body += `Valor médio da conta: ${dados.valorConta}\n`;
                 
-                const mailtoLink = `mailto:contato@masterway.com.br?subject=${subject}&body=${encodeURIComponent(body)}`;
+                const mailtoLink = `mailto:contato@masterwayenergia.com.br?subject=${subject}&body=${encodeURIComponent(body)}`;
                 window.location.href = mailtoLink;
                 
                 btn.innerHTML = `Pronto!`;
